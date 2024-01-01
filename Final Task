@@ -1,0 +1,13 @@
+SELECT 
+a.Date as order_date, 
+b.CategoryName as category_name,
+c.ProdName as product_name, 
+c.Price as product_price, 
+a.Quantity as order_qty, 
+c.Price * a.Quantity AS total_sales,
+d.CustomerEmail as cust_email, 
+d.CustomerCity as cust_city
+FROM `beaming-theorem-409804.FinalTask.Orders` as a
+JOIN `beaming-theorem-409804.FinalTask.Products` as c ON a.ProdNumber = c.ProdNumber
+JOIN `beaming-theorem-409804.FinalTask.ProductsCategory` as b ON c.Category = b.CategoryID
+JOIN `beaming-theorem-409804.FinalTask.Customer` as d ON d.CustomerID = a.CustomerID
